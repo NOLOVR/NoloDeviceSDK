@@ -38,6 +38,9 @@ namespace NoloClientCSharp
         public static extern void SetHmdCenter(ref NVector3 hmdCenter);
 
         [DllImport("NoloClientLib", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void SetBCellingMode(bool bCellingMode);
+
+        [DllImport("NoloClientLib", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool OpenNoloZeroMQ();
 
         [DllImport("NoloClientLib", CallingConvention = CallingConvention.Cdecl)]

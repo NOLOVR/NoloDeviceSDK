@@ -86,7 +86,7 @@ struct NOLOData
 //CStyle FunPotinters
 typedef void(__cdecl *pfnKeyEvent)(ENoloDeviceType DevType, UCHAR Keys);
 typedef void(__cdecl *pfnVoidCallBack)();
-typedef void(__cdecl *pfnDataCallBack)(const NOLOData &leftData);
+typedef void(__cdecl *pfnDataCallBack)(const NOLOData &noloData);
 typedef void(__cdecl *pfnVoidIntCallBack)(int Versions);
 
 enum EClientCallBackTypes

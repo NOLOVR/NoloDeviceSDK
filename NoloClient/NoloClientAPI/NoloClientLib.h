@@ -29,6 +29,15 @@ extern "C"
 	*************************************************/
 	NOLO_API void __cdecl SetEventListener(INOLOZQMEvent *Listener);
 
+	/*************************************************
+	功能描述: 设置是否使用悬挂模式，
+	参数列表:
+		  @ bCellingMode  【输入】 true 为 悬挂模式， false 为平放模式
+	返 回 值: void
+	其它说明: 此函数必须要ZMQ建立连接后，调用才会生效，推荐在回调函数OnZMQConnected()中调用
+			  通常情况下，不建议客户使用悬挂模式
+	*************************************************/
+	NOLO_API void __cdecl SetBCellingMode(bool bCellingMode);
 
 	/*************************************************
 	功能描述: 设置回调 与SetEventListener,二者选一,不可混用
