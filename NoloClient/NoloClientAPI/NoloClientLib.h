@@ -27,7 +27,7 @@ extern "C"
 	返 回 值: void
 	其它说明: 无
 	*************************************************/
-	NOLO_API void __cdecl SetEventListener(INOLOZQMEvent *Listener);
+	NOLO_API void __cdecl SetEventListener(INOLOZMQEvent *Listener);
 
 	/*************************************************
 	功能描述: 设置是否使用悬挂模式，
@@ -35,16 +35,17 @@ extern "C"
 		  @ bCellingMode  【输入】 true 为 悬挂模式， false 为平放模式
 	返 回 值: void
 	其它说明: 此函数必须要ZMQ建立连接后，调用才会生效，推荐在回调函数OnZMQConnected()中调用
-			  通常情况下，不建议客户使用悬挂模式
+			  通常情况下，不建议客户使用悬挂模式，推荐C++开发下使用本接口
 	*************************************************/
 	NOLO_API void __cdecl SetBCellingMode(bool bCellingMode);
 
 	/*************************************************
 	功能描述: 设置回调 与SetEventListener,二者选一,不可混用
 	参数列表:
-			  @ callBackType  【输入】 从接口INOLOZQMEvent派生的类 实例指针
+			  @ callBackType  【输入】 回调类型
+			  @ pCallBackFun  【输入】 函数指针
 	返 回 值: void
-	其它说明: 无
+	其它说明: 推荐C#使用本接口
 	*************************************************/
 	NOLO_API void __cdecl RegisterCallBack(EClientCallBackTypes callBackType, void *pCallBackFun);
 

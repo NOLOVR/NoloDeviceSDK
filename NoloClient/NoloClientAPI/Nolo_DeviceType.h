@@ -85,6 +85,7 @@ struct NOLOData
 
 //CStyle FunPotinters
 typedef void(__cdecl *pfnKeyEvent)(ENoloDeviceType DevType, UCHAR Keys);
+typedef void(__cdecl *pfnKeyUpDownEvent)(ENoloDeviceType DevType, EControlerButtonType type);
 typedef void(__cdecl *pfnVoidCallBack)();
 typedef void(__cdecl *pfnDataCallBack)(const NOLOData &noloData);
 typedef void(__cdecl *pfnVoidIntCallBack)(int Versions);
@@ -94,21 +95,32 @@ enum EClientCallBackTypes
 	eOnZMQConnected = 0,  
 	eOnZMQDisConnected,       
 	eOnButtonDoubleClicked, 
+	eOnKeyPressEvent,
+	eOnKeyReleaseEvent,
 	eOnNewData,        // pfnDataCallBack
 	eOnNoloDevVersion, // pfnVoidIntCallBack
 	eCallBackCount
 };
 
-class INOLOZQMEvent
+//不要在派生类中阻塞任何回调函数，以及处理耗时的工作
+class INOLOZMQEvent
 {
 public:
+	//已经与服务端建立连接
 	virtual void OnZMQConnected() = 0;
+	//已经与服务端断开连接
 	virtual void OnZMQDisConnected() = 0;
 	//DevType存在的某个按键被双击了 
 	//通过判断 （Keys & EControlerButtonType::XX）来判断该按钮是否被双击了
-	virtual void OnKeyDoubleClicked(ENoloDeviceType DevType, UCHAR Keys) = 0;
-	virtual void OnNewData(const NOLOData &_noloData) = 0;
-	virtual void OnNoloDevNeedUpdate(int Versions) = 0;
+	virtual void OnKeyDoubleClicked(ENoloDeviceType DevType, UCHAR Keys) {};
+	//存在按钮被按下
+	virtual void OnButtonPressed(ENoloDeviceType device, EControlerButtonType type) {};
+	//存在按钮被抬起
+	virtual void OnButtonRelease(ENoloDeviceType device, EControlerButtonType type) {};
+	//新数据
+	virtual void OnNewData(const NOLOData &_noloData) {};
+	//判断Nolo设备是否需要更新
+	virtual void OnNoloDevNeedUpdate(int Versions) {};
 
 };
 
