@@ -4,6 +4,8 @@
 #define _ZMQRECEIVELIB_H_
 
 #include "Nolo_DeviceType.h"
+//Disable 不兼容UDT的C类型
+#pragma warning(disable:4190)
 
 namespace NOLOVR
 {

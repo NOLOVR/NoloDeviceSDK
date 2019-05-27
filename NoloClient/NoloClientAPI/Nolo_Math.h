@@ -20,7 +20,7 @@
 
 #define NOLO_EC  extern "C"
 #define safeDelte(p) if(p!=nullptr){delete p;p=nullptr;}
-#define M_PI 3.14159265358979323846   /* pi */
+#define M_PI 3.14159265358f   /* pi */
 
 typedef unsigned int UINT;
 typedef unsigned char byte;
@@ -28,10 +28,13 @@ typedef unsigned char byte;
 namespace NOLOVR
 {
 
-struct  NVector2
+struct NOLO_API  NVector2
 {
+public:
 	float x;
 	float y;
+	float length();
+	void  normalize();
 };
 
 struct NOLO_API  NVector3
