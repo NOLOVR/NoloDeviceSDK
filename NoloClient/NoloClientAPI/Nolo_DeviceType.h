@@ -102,6 +102,7 @@ enum EClientCallBackTypes
 	eCallBackCount
 };
 
+
 //不要在派生类中阻塞任何回调函数，以及处理耗时的工作
 class INOLOZMQEvent
 {

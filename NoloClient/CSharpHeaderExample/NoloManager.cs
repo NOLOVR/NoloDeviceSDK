@@ -63,7 +63,7 @@ namespace TestClientSharpDemo
 
         private void OnNewData(ref NOLOData noloData)
         {   
-            //Console.Write("Data "+ noloData.hmdData.HMDRotation);
+            Console.WriteLine("Data "+ noloData.hmdData.HMDRotation);
             //Console.WriteLine(" lPack:" + noloData.leftPackNumber +"rPack:"+ noloData.rightPackNumber);
 
         }

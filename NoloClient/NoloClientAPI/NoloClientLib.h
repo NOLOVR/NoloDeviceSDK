@@ -121,6 +121,15 @@ extern "C"
 	*************************************************/
 	NOLO_API NOLOData   __cdecl GetNoloData();
 
+	/*************************************************
+	功能描述: 向Server端发送命令
+	参数列表: @CmdContent 是一个json字符串，如 "{Type:\"ShowPsvr\",Msg:\"OK\"}"，内容与客户端商定
+				最大字符串数目 60
+	返 回 值: @ NOLOData
+	其它说明: 无
+	*************************************************/
+	NOLO_API void   __cdecl SendUIComand(const char *strCmdContent);
+
 }
 
 }

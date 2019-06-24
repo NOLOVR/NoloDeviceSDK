@@ -21,6 +21,8 @@ namespace NoloClientCSharp
         eOnZMQConnected = 0,     //pfnVoidCallBack
         eOnZMQDisConnected,      //pfnVoidCallBack
         eOnButtonDoubleClicked,  //pfnKeyEvent
+        eOnKeyPressEvent,        //pfnKeyEvent
+        eOnKeyReleaseEvent,      //pfnKeyEvent
         eOnNewData,              //pfnDataCallBack
         eOnNoloDevVersion,       //pfnVoidIntCallBack
         eCallBackCount

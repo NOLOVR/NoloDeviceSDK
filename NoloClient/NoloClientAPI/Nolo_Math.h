@@ -3,6 +3,8 @@
 #ifndef _NOLO_MATH_H_
 #define _NOLO_MATH_H_
 
+#define _USE_MATH_DEFINES
+#include <math.h>
 
 #ifdef SDKDLL_EXPORTS
 #define NOLO_API __declspec(dllexport)
@@ -20,7 +22,6 @@
 
 #define NOLO_EC  extern "C"
 #define safeDelte(p) if(p!=nullptr){delete p;p=nullptr;}
-#define M_PI 3.14159265358f   /* pi */
 
 typedef unsigned int UINT;
 typedef unsigned char byte;
